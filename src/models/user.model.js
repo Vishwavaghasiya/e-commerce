@@ -18,10 +18,10 @@ const userSchema = new mongoose.Schema(
             type: String,
             trim: true,
         },
-        createdAt: {
-            type: Boolean,
-            default: true,
-        },
+        is_active :{
+            type : Boolean,
+            default : true
+        }
     },
     {
         timestamps: true,

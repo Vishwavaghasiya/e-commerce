@@ -5,7 +5,7 @@ const createRecord = async (reqBody) => {
 }
 
 const getList = async (req, res) => {
-    return Category.find({ $or: [{ is_active: true }] });
+    return Category.find();
 }
 
 const deleteRecord = async (categoryId) => {

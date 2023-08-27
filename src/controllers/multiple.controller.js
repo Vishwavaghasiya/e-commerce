@@ -1,6 +1,6 @@
 const { userService, productService, categoryService } = require("../services");
 
-/** create user record */
+/** create record */
 const createRecord = async (req, res) => {
     try {
         const reqBody = req.body;
@@ -9,16 +9,16 @@ const createRecord = async (req, res) => {
         const product = await productService.createRecord(reqBody);
         const category = await categoryService.createRecord(reqBody);
 
-        if (!user, !product, !category) {
-            throw new Error("Something wents wrong , please try again or later !!");
+        if (!user || !product || !category) {
+            throw new Error("Something went wrong, please try again later!!");
         }
 
         res.status(200).json({
             success: true,
-            message: "Your data create successfully !!"
+            message: "Your data was created successfully!!"
         });
     } catch (error) {
-        res.status(400).json({ success: fasle, message: error.message });
+        res.status(400).json({ success: false, message: error.message });
     }
 }
 
@@ -31,13 +31,11 @@ const getList = async (req, res) => {
 
         res.status(200).json({
             success: true,
-            message: "Your lists were created successfully!",
+            message: "Your lists were fetched successfully!",
             data: { getUser, getCategory, getProduct }
         });
     } catch (error) {
-        res.status(400).json({
-            success: false, message: error.message
-        });
+        res.status(400).json({ success: false, message: error.message });
     }
 }
 
@@ -45,17 +43,17 @@ const getList = async (req, res) => {
 const deleteRecord = async (req, res) => {
     try {
         const userId = req.params.userId;
-        const productId = req.params.userId;
-        const categoryId = req.params.userId;
+        const productId = req.params.productId;
+        const categoryId = req.params.categoryId;
 
-        const userExist = await userService.getList(reqBody);
-        const productExist = await productService.getList(reqBody);
-        const categoryExist = await categoryService.getList(reqBody);
+        const userExist = await userService.getList(userId);
+        const productExist = await productService.getList(productId);
+        const categoryExist = await categoryService.getList(categoryId);
 
         const results = [userExist, productExist, categoryExist];
 
-        if (results.some(result => !result)) {
-            throw new Error("Failed to fetch lists!");
+        if (!results) {
+            throw new Error("Failed to fetch lists !")
         }
 
         await userService.deleteRecord(userId);
@@ -64,14 +62,11 @@ const deleteRecord = async (req, res) => {
 
         res.status(200).json({
             success: true,
-            message: "Your record delete successfully !!"
+            message: "Your records were deleted successfully!!"
         });
 
     } catch (error) {
-        res.status(400).json({
-            success: false,
-            message: error.message
-        });
+        res.status(400).json({ success: false, message: error.message });
     }
 }
 
