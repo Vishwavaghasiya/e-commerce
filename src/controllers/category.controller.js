@@ -7,33 +7,35 @@ const createCategory = async (req, res) => {
 
         const category = await categoryService.createCategory(reqBody);
         if (!category) {
-            throw new Error("Something went wrong, please try again or later!");
+            throw new Error('Something wents wrong , please try again or later !');
         }
 
-        res.status(200).json({
-            success: true,
-            message: "Category create successfully!",
-            data: { category },
-        });
+        res.status(200).json(
+            {
+                success: true,
+                message: "category module create successfully !",
+                data: { category },
+            }
+        );
     } catch (error) {
         res.status(400).json({ success: false, message: error.message });
     }
 };
 
 /** getCategoryList */
-// const getCategoryList = async (req , res) => {
-//     try {
-//         const getList = categoryService.getCategoryList(req ,res);
+const getCategoryList = async (req , res) => {
+    try {
+        const getList = categoryService.getCategoryList(req ,res);
 
-//         res.status(200).json({
-//             success: true,
-//             message: "Your lists were fetched successfully!",
-//             data: { getList }
-//         });
-//     } catch (error) {
-//         res.status(400).json({ success: false, message: error.message });
-//     }
-// }
+        res.status(200).json({
+            success: true,
+            message: "Your lists were fetched successfully!",
+            data: { getList }
+        });
+    } catch (error) {
+        res.status(400).json({ success: false, message: error.message });
+    }
+}
 
 /* Delete category */
 const deleteCategory = async (req, res) => {
@@ -57,6 +59,6 @@ const deleteCategory = async (req, res) => {
 
 module.exports = {
     createCategory,
-    // getCategoryList,
+    getCategoryList,
     deleteCategory
 };

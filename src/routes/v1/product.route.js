@@ -1,6 +1,6 @@
 const express = require('express');
 const validate = require("../../middlewares/validate");
-const { productController, eComController } = require('../../controllers');
+const { productController } = require('../../controllers');
 const { productValidation } = require('../../validations');
 
 const router = express.Router();
@@ -15,7 +15,7 @@ router.post(
 router.get(
     "/product-list",
     validate(productValidation.getProductList),
-    eComController.getAllList
+    productController.getProductList
 );
 
 router.delete(

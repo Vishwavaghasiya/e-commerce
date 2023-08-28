@@ -20,6 +20,21 @@ const createUser = async (req, res) => {
     }
 };
 
+/** get user List */
+const getUserList = async (req , res) => {
+    try {
+        const getList = userService.getUserList(req ,res);
+
+        res.status(200).json({
+            success: true,
+            message: "Your lists were fetched successfully!",
+            data: { getList }
+        });
+    } catch (error) {
+        res.status(400).json({ success: false, message: error.message });
+    }
+}
+
 /* Delete user */
 const deleteUser = async (req, res) => {
     try {
@@ -45,5 +60,6 @@ const deleteUser = async (req, res) => {
 
 module.exports = {
     createUser,
+    getUserList,
     deleteUser
 };

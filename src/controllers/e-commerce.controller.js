@@ -3,9 +3,9 @@ const { userService, productService, categoryService } = require("../services");
 /** get e-commerce list */
 const getAllList = async (req , res) => {
     try {
-        const getUser = await userService.getUserList();
-        const getCategory = await categoryService.getCategoryList();
-        const getProduct = await productService.getProductList();
+        const getUser = await userService.getUserList(req ,res);
+        const getCategory = await categoryService.getCategoryList(req ,res);
+        const getProduct = await productService.getProductList(req ,res);
 
         res.status(200).json({
             success: true,

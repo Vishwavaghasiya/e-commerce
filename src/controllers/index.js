@@ -1,6 +1,4 @@
-module.exports = {
-    categoryController: require('./category.controller'),
-    productController: require('./product.controller'),
-    userController: require('./user.controller'),
-    eComController: require('./e-commerce.controller')
-};
+module.exports.userController = require("./user.controller");
+module.exports.productController = require("./product.controller");
+module.exports.categoryController = require("./category.controller");
+module.exports.eComListController = require("./e-commerce.controller");

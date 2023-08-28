@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 /** create category */
-const createCategory = {
+const createCategoryValidation = {
     body : Joi.object().keys({
         name : Joi.string().required().trim(),
         description : Joi.string().required().trim(),
@@ -23,6 +23,6 @@ const getCategoryList = {
 };
 
 module.exports = {
-    createCategory,
+    createCategoryValidation,
     getCategoryList
 }
