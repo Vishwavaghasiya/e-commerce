@@ -1,10 +1,10 @@
 const { Category } = require("../models");
 
-const createRecord = async (reqBody) => {
+const createCategory = async (reqBody) => {
     return Category.create(reqBody);
 }
 
-const getList = async (req, res) => {
+const getCategoryList = async (req, res) => {
     return Category.find();
 }
 
@@ -17,8 +17,8 @@ const categoryById = async (categoryId) => {
 }
 
 module.exports = {
-    createRecord,
-    getList,
+    createCategory,
+    getCategoryList,
     deleteRecord,
     categoryById
 }

@@ -1,27 +1,31 @@
-/*-----
-    product.model
--------*/
-//require mongoose
 const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema(
     {
-        product_type: {
-            type : String,
+        productName: {
+            type: String,
             trim: true,
         },
-        product_name: {
-            type : String,
+        description: {
+            type: String,
             trim: true,
         },
         price: {
-            type : Number,
+            type: Number,
             trim: true,
+        },
+        category: {
+            type: String,
+            trim: true
+        },
+        is_active: {
+            type: Boolean,
+            default: true
         }
     },
     {
-        timeStamps : true,
-        versionKey : false,
+        timeStamps: true,
+        versionKey: false,
     }
 );
 

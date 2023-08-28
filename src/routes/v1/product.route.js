@@ -1,22 +1,26 @@
 const express = require('express');
-const { productController } = require('../../controllers');
+const validate = require("../../middlewares/validate");
+const { productController, eComController } = require('../../controllers');
+const { productValidation } = require('../../validations');
 
 const router = express.Router();
 
 /** create product */
 router.post(
     "/create-product",
-    productController.createRecord
+    validate(productValidation.createProduct),
+    productController.createProduct
 );
 
 router.get(
     "/product-list",
-    productController.getList
+    validate(productValidation.getProductList),
+    eComController.getAllList
 );
 
 router.delete(
     "/delete-product/:productId",
-    productController.deleteRecord
+    productController.deleteProduct
 );
 
 module.exports = router

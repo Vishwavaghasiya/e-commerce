@@ -1,10 +1,10 @@
 const { Product } = require("../models");
 
-const createRecord = async (reqBody) => {
+const createProduct = async (reqBody) => {
     return Product.create(reqBody);
 }
 
-const getList = async (req, res) => {
+const getProductList = async (req, res) => {
     return Product.find();
 }
 
@@ -17,8 +17,8 @@ const productById = async (productId) => {
 }
 
 module.exports = {
-    createRecord,
-    getList,
+    createProduct,
+    getProductList,
     deleteRecord,
     productById
 }

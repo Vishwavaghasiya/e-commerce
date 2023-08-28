@@ -2,11 +2,27 @@ const mongoose = require("mongoose");
 
 const categorySchema = new mongoose.Schema(
     {
-        category_name: {
+        name: {
             type: String,
             trim: true,
         },
-        category_desc: {
+        description: {
+            type: String,
+            trim: true,
+        },
+        price: {
+            type: String,
+            trim: true,
+        },
+        quantity: {
+            type: String,
+            trim: true,
+        },
+        manufacturer: {
+            type: String,
+            trim: true,
+        },
+        rating: {
             type: String,
             trim: true,
         },

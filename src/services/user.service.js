@@ -1,10 +1,10 @@
 const { User } = require("../models");
 
-const createRecord = async (reqBody) => {
+const createUser = async (reqBody) => {
   return User.create(reqBody);
 }
 
-const getList = async (req, res) =>{
+const getUserList = async (req, res) =>{
   return User.find();
 }
 
@@ -17,8 +17,8 @@ const userById = async (userId) => {
 }
 
 module.exports = {
-  createRecord,
-  getList,
+  createUser,
+  getUserList,
   deleteRecord,
   userById
 }
