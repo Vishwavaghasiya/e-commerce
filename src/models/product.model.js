@@ -2,6 +2,14 @@ const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema(
     {
+        user: {
+            type: mongoose.Types.ObjectId,
+            ref: "user",
+        },
+        category: {
+            type: mongoose.Types.ObjectId,
+            ref: "category",
+        },
         productName: {
             type: String,
             trim: true,
@@ -13,10 +21,6 @@ const productSchema = new mongoose.Schema(
         price: {
             type: Number,
             trim: true,
-        },
-        category: {
-            type: String,
-            trim: true
         },
         is_active: {
             type: Boolean,

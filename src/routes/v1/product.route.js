@@ -20,7 +20,12 @@ router.get(
 
 router.delete(
     "/delete-product/:productId",
-    productController.deleteProduct
+    productController.deleteRecord
+);
+
+router.put(
+    "/product-update/:productId",
+    productController.updateProduct
 );
 
 module.exports = router

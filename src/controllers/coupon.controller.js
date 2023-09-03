@@ -1,12 +1,12 @@
-const { categoryService } = require("../services");
+const { couponService } = require("../services");
 
-/** create category record */
-const createCategory = async (req, res) => {
+/** create coupon record */
+const createCoupon = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        const category = await categoryService.createCategory(reqBody);
-        if (!category) {
+        const coupon = await couponService.createCoupon(reqBody);
+        if (!coupon) {
             throw new Error("Something wents wrong , please try again or later !!");
         }
 
@@ -20,13 +20,13 @@ const createCategory = async (req, res) => {
 }
 
 /** get list */
-const getCategoryList = async (req, res) => {
+const getCouponList = async (req, res) => {
     try {
-        const getList = await categoryService.getCategoryList(req, res);
+        const getList = await couponService.getCouponList(req, res);
 
         res.status(200).json({
             success: true,
-            message: "Your category list create successfullYyy !",
+            message: "Your coupon list create successfullYyy !",
             data: { getList }
         });
     } catch (error) {
@@ -36,12 +36,12 @@ const getCategoryList = async (req, res) => {
     }
 }
 
-/**get category by id */
-const getCategoryDetails = async (req, res) => {
+/**get coupon by id */
+const getCouponDetails = async (req, res) => {
     try {
-        const getDetails = await categoryService.categoryById(req.params.categoryId);
+        const getDetails = await couponService.couponById(req.params.couponId);
         if (!getDetails) {
-            throw new Error("category not Found !");
+            throw new Error("coupon not Found !");
         }
 
         res.status(200).json({
@@ -54,21 +54,21 @@ const getCategoryDetails = async (req, res) => {
     }
 }
 
-/**Update category */
-const updateCategory = async (req, res) => {
+/**Update coupon */
+const updateCoupon = async (req, res) => {
     try {
-        const categoryId = req.params.categoryId;
+        const couponId = req.params.couponId;
 
-        const categoryEx = await categoryService.categoryById(categoryId);
-        if (!categoryEx) {
-            throw new Error("category not found !");
+        const couponEx = await couponService.couponById(couponId);
+        if (!couponEx) {
+            throw new Error("coupon not found !");
         }
 
-        await categoryService.updateCategory(categoryId, req.body);
+        await couponService.updateCoupon(couponId, req.body);
 
         res.status(200).json({
             success: true,
-            message: "Your category record is update successfully !"
+            message: "Your coupon record is update successfully !"
         });
     } catch (error) {
         res.status(400).json({ success: false, message: error.message });
@@ -78,14 +78,14 @@ const updateCategory = async (req, res) => {
 /** delete record */
 const deleteRecord = async (req, res) => {
     try {
-        const categoryId = req.params.categoryId;
+        const couponId = req.params.couponId;
 
-        const categoryExist = await categoryService.getCategoryList(categoryId);
-        if (!categoryExist) {
-            throw new Error("category not found");
+        const couponExist = await couponService.getCouponList(couponId);
+        if (!couponExist) {
+            throw new Error("coupon not found");
         }
 
-        await categoryService.deleteRecord(categoryId);
+        await couponService.deleteRecord(couponId);
 
         res.status(200).json({
             success: true,
@@ -100,9 +100,9 @@ const deleteRecord = async (req, res) => {
 }
 
 module.exports = {
-    createCategory,
-    getCategoryList,
-    getCategoryDetails,
-    updateCategory,
+    createCoupon,
+    getCouponList,
+    getCouponDetails,
+    updateCoupon,
     deleteRecord
 }

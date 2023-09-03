@@ -2,6 +2,14 @@ const mongoose = require('mongoose');
 
 const blogpostSchema = new mongoose.Schema(
     {
+        user: {
+            type: mongoose.Types.ObjectId,
+            ref: "user",
+        },
+        notification: {
+            type: mongoose.Types.ObjectId,
+            ref: "notification",
+        },
         title: {
             type: String,
             trim: true

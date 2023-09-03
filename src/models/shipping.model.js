@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 const shippingSchema = new mongoose.Schema(
     {
+        user: {
+            type: mongoose.Types.ObjectId,
+            ref: 'user'
+        },
         address: {
             type: String,
             trim: true

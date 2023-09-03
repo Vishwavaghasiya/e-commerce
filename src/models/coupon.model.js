@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 const couponSchema = new mongoose.Schema(
     {
+        user: {
+            type: mongoose.Types.ObjectId,
+            ref: "user",
+        },
         code: {
             type: String,
             trim: true

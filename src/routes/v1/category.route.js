@@ -20,7 +20,12 @@ router.get(
 
 router.delete(
     "/delete-category/:categoryId",
-    categoryController.deleteCategory
+    categoryController.deleteRecord
+);
+
+router.put(
+    "/category-update/:categoryId",
+    categoryController.updateCategory
 );
 
 module.exports = router

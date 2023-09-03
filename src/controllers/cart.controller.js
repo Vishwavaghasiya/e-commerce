@@ -1,12 +1,12 @@
-const { categoryService } = require("../services");
+const { cartService } = require("../services");
 
-/** create category record */
-const createCategory = async (req, res) => {
+/** create cart record */
+const createCart = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        const category = await categoryService.createCategory(reqBody);
-        if (!category) {
+        const cart = await cartService.createCart(reqBody);
+        if (!cart) {
             throw new Error("Something wents wrong , please try again or later !!");
         }
 
@@ -20,13 +20,13 @@ const createCategory = async (req, res) => {
 }
 
 /** get list */
-const getCategoryList = async (req, res) => {
+const getCartList = async (req, res) => {
     try {
-        const getList = await categoryService.getCategoryList(req, res);
+        const getList = await cartService.getCartList(req, res);
 
         res.status(200).json({
             success: true,
-            message: "Your category list create successfullYyy !",
+            message: "Your cart list create successfullYyy !",
             data: { getList }
         });
     } catch (error) {
@@ -36,12 +36,12 @@ const getCategoryList = async (req, res) => {
     }
 }
 
-/**get category by id */
-const getCategoryDetails = async (req, res) => {
+/**get cart by id */
+const getCartDetails = async (req, res) => {
     try {
-        const getDetails = await categoryService.categoryById(req.params.categoryId);
+        const getDetails = await cartService.cartById(req.params.cartId);
         if (!getDetails) {
-            throw new Error("category not Found !");
+            throw new Error("cart not Found !");
         }
 
         res.status(200).json({
@@ -54,21 +54,21 @@ const getCategoryDetails = async (req, res) => {
     }
 }
 
-/**Update category */
-const updateCategory = async (req, res) => {
+/**Update cart */
+const updateCart = async (req, res) => {
     try {
-        const categoryId = req.params.categoryId;
+        const cartId = req.params.cartId;
 
-        const categoryEx = await categoryService.categoryById(categoryId);
-        if (!categoryEx) {
-            throw new Error("category not found !");
+        const cartEx = await cartService.cartById(cartId);
+        if (!cartEx) {
+            throw new Error("cart not found !");
         }
 
-        await categoryService.updateCategory(categoryId, req.body);
+        await cartService.updateCart(cartId, req.body);
 
         res.status(200).json({
             success: true,
-            message: "Your category record is update successfully !"
+            message: "Your cart record is update successfully !"
         });
     } catch (error) {
         res.status(400).json({ success: false, message: error.message });
@@ -78,14 +78,14 @@ const updateCategory = async (req, res) => {
 /** delete record */
 const deleteRecord = async (req, res) => {
     try {
-        const categoryId = req.params.categoryId;
+        const cartId = req.params.cartId;
 
-        const categoryExist = await categoryService.getCategoryList(categoryId);
-        if (!categoryExist) {
-            throw new Error("category not found");
+        const cartExist = await cartService.getCartList(cartId);
+        if (!cartExist) {
+            throw new Error("cart not found");
         }
 
-        await categoryService.deleteRecord(categoryId);
+        await cartService.deleteRecord(cartId);
 
         res.status(200).json({
             success: true,
@@ -100,9 +100,9 @@ const deleteRecord = async (req, res) => {
 }
 
 module.exports = {
-    createCategory,
-    getCategoryList,
-    getCategoryDetails,
-    updateCategory,
+    createCart,
+    getCartList,
+    getCartDetails,
+    updateCart,
     deleteRecord
 }

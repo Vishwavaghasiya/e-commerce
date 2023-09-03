@@ -2,36 +2,44 @@ const mongoose = require('mongoose');
 
 const wishlistSchema = new mongoose.Schema(
     {
-        name : {
-            type : String,
-            trim : true
+        user: {
+            type: mongoose.Types.ObjectId,
+            ref: "user",
         },
-        description : {
-            type : String,
-            trim : true
+        items: {
+            type: mongoose.Types.ObjectId,
+            ref: "product",
         },
-        visibility : {
-            type : String,
-            trim : true
+        name: {
+            type: String,
+            trim: true
         },
-        itemCount : {
+        description: {
+            type: String,
+            trim: true
+        },
+        visibility: {
+            type: String,
+            trim: true
+        },
+        itemCount: {
             type: Number
         },
         // (e.g., "birthday," "holiday," "favorite products")
-        tags : {
-            type : String,
-            trim : true
+        tags: {
+            type: String,
+            trim: true
         },
-        is_active : {
-            type : Boolean,
-            default : true
+        is_active: {
+            type: Boolean,
+            default: true
         }
     },
     {
-        timestamps : true,
-        versionKey : false
+        timestamps: true,
+        versionKey: false
     }
 );
 
-const Wishlist = mongoose.model('wishlist' , wishlistSchema);
+const Wishlist = mongoose.model('wishlist', wishlistSchema);
 module.exports = Wishlist

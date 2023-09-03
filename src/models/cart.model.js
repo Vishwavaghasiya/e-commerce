@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema(
     {
+        user: {
+            type: mongoose.Types.ObjectId,
+            ref: "user",
+        },
         // 'pending', 'processing', 'shipped', 'delivered', 'cancelled'
         status : {
             type : String,

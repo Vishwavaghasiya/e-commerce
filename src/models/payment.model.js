@@ -1,7 +1,15 @@
- const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 const paymentSchema = new mongoose.Schema(
     {
+        order: {
+            type: mongoose.Types.ObjectId,
+            ref: 'order'
+        },
+        user: {
+            type: mongoose.Types.ObjectId,
+            ref: 'user'
+        },
         method: {
             type: String,
             trim: true

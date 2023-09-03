@@ -16,9 +16,14 @@ const categoryById = async (categoryId) => {
     return Category.findById(categoryId);
 }
 
+const updateCategory = async (categoryId, updateRecord) => {
+    return Category.findByIdAndUpdate(categoryId, { $set: updateRecord });
+}
+
 module.exports = {
     createCategory,
     getCategoryList,
     deleteRecord,
-    categoryById
+    categoryById,
+    updateCategory
 }

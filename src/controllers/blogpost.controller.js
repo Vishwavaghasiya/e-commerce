@@ -1,12 +1,12 @@
-const { categoryService } = require("../services");
+const { blogpostService } = require("../services");
 
-/** create category record */
-const createCategory = async (req, res) => {
+/** create blogpost record */
+const createBlogpost = async (req, res) => {
     try {
         const reqBody = req.body;
 
-        const category = await categoryService.createCategory(reqBody);
-        if (!category) {
+        const blogpost = await blogpostService.createBlogpost(reqBody);
+        if (!blogpost) {
             throw new Error("Something wents wrong , please try again or later !!");
         }
 
@@ -20,13 +20,13 @@ const createCategory = async (req, res) => {
 }
 
 /** get list */
-const getCategoryList = async (req, res) => {
+const getBlogpostList = async (req, res) => {
     try {
-        const getList = await categoryService.getCategoryList(req, res);
+        const getList = await blogpostService.getBlogpostList(req, res);
 
         res.status(200).json({
             success: true,
-            message: "Your category list create successfullYyy !",
+            message: "Your blogpost list create successfullYyy !",
             data: { getList }
         });
     } catch (error) {
@@ -36,12 +36,12 @@ const getCategoryList = async (req, res) => {
     }
 }
 
-/**get category by id */
-const getCategoryDetails = async (req, res) => {
+/**get blogpost by id */
+const getBlogpostDetails = async (req, res) => {
     try {
-        const getDetails = await categoryService.categoryById(req.params.categoryId);
+        const getDetails = await blogpostService.blogpostById(req.params.blogpostId);
         if (!getDetails) {
-            throw new Error("category not Found !");
+            throw new Error("blogpost not Found !");
         }
 
         res.status(200).json({
@@ -54,21 +54,21 @@ const getCategoryDetails = async (req, res) => {
     }
 }
 
-/**Update category */
-const updateCategory = async (req, res) => {
+/**Update blogpost */
+const updateBlogpost = async (req, res) => {
     try {
-        const categoryId = req.params.categoryId;
+        const blogpostId = req.params.blogpostId;
 
-        const categoryEx = await categoryService.categoryById(categoryId);
-        if (!categoryEx) {
-            throw new Error("category not found !");
+        const blogpostEx = await blogpostService.blogpostById(blogpostId);
+        if (!blogpostEx) {
+            throw new Error("blogpost not found !");
         }
 
-        await categoryService.updateCategory(categoryId, req.body);
+        await blogpostService.updateBlogpost(blogpostId, req.body);
 
         res.status(200).json({
             success: true,
-            message: "Your category record is update successfully !"
+            message: "Your blogpost record is update successfully !"
         });
     } catch (error) {
         res.status(400).json({ success: false, message: error.message });
@@ -78,14 +78,14 @@ const updateCategory = async (req, res) => {
 /** delete record */
 const deleteRecord = async (req, res) => {
     try {
-        const categoryId = req.params.categoryId;
+        const blogpostId = req.params.blogpostId;
 
-        const categoryExist = await categoryService.getCategoryList(categoryId);
-        if (!categoryExist) {
-            throw new Error("category not found");
+        const blogpostExist = await blogpostService.getBlogpostList(blogpostId);
+        if (!blogpostExist) {
+            throw new Error("blogpost not found");
         }
 
-        await categoryService.deleteRecord(categoryId);
+        await blogpostService.deleteRecord(blogpostId);
 
         res.status(200).json({
             success: true,
@@ -100,9 +100,9 @@ const deleteRecord = async (req, res) => {
 }
 
 module.exports = {
-    createCategory,
-    getCategoryList,
-    getCategoryDetails,
-    updateCategory,
+    createBlogpost,
+    getBlogpostList,
+    getBlogpostDetails,
+    updateBlogpost,
     deleteRecord
 }
