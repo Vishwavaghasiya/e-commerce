@@ -1,3 +1,12 @@
 module.exports.categoryService = require("./category.service");
 module.exports.productService = require("./product.service");
 module.exports.userService = require("./user.service");
+module.exports.blogpostService = require("./blogpost.service");
+module.exports.cartService = require("./cart.service");
+module.exports.couponService = require("./coupon.service");
+module.exports.notificationService = require("./notification.service");
+module.exports.orderService = require("./order.service");
+module.exports.paymentService = require("./payment.service");
+module.exports.reviewService = require("./review.service");
+module.exports.shippingService = require("./shipping.service");
+module.exports.wishlistService = require("./wishlist.service");

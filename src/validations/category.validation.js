@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 /** create category */
-const createCategoryValidation = {
+const createCategory = {
     body : Joi.object().keys({
         name : Joi.string().required().trim(),
         description : Joi.string().required().trim(),
@@ -12,17 +12,6 @@ const createCategoryValidation = {
     }),
 };
 
-/** get category */
-const getCategoryList = {
-    query : Joi.object().keys({
-        search : Joi.string().required().trim(),
-        sortBy : Joi.string().required().trim(),
-        limit : Joi.string().required().trim(),
-        page : Joi.string().required().trim()
-    }),
-};
-
 module.exports = {
-    createCategoryValidation,
-    getCategoryList
+    createCategory
 }

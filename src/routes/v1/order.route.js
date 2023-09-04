@@ -1,6 +1,6 @@
 const express = require("express");
 const { orderController } = require('../../controllers');
-const { orderValidation } = require("../../validation");
+const { orderValidation } = require("../../validations");
 const validate = require("../../middlewares/validate");
 
 const router = express.Router();
@@ -9,7 +9,7 @@ const router = express.Router();
 router.post(
     "/order-data",
     validate(orderValidation.createOrder),
-    orderController.createorder
+    orderController.createOrder
 );
 
 /**Get list */

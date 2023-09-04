@@ -1,6 +1,6 @@
 const express = require("express");
 const { reviewController } = require('../../controllers');
-const { reviewValidation } = require("../../validation");
+const { reviewValidation } = require("../../validations");
 const validate = require("../../middlewares/validate");
 
 const router = express.Router();
@@ -9,7 +9,7 @@ const router = express.Router();
 router.post(
     "/review-data",
     validate(reviewValidation.createReview),
-    reviewController.createreview
+    reviewController.createReview
 );
 
 /**Get list */

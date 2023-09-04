@@ -8,7 +8,7 @@ const router = express.Router();
 /** create category */
 router.post(
     "/create-category",
-    validate(categoryValidation.createCategoryValidation),
+    validate(categoryValidation.createCategory),
     categoryController.createCategory
 );
 

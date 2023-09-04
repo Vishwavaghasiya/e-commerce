@@ -1,3 +1,12 @@
 module.exports.userValidation = require("./user.validation");
 module.exports.productValidation = require("./product.validation");
 module.exports.categoryValidation = require("./category.validation");
+module.exports.blogpostValidation = require('./blogpost.validation');
+module.exports.cartValidation = require('./cart.validation');
+module.exports.couponValidation = require('./coupon.validation');
+module.exports.notificationValidation = require('./notification.validation');
+module.exports.orderValidation = require('./order.validation');
+module.exports.paymentValidation = require('./payment.validation');
+module.exports.reviewValidation = require('./review.validation');
+module.exports.shippingValidation = require('./shipping.validation');
+module.exports.wishlistValidation = require('./wishlist.validation');
