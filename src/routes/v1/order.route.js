@@ -7,7 +7,7 @@ const router = express.Router();
 
 /**Create record */
 router.post(
-    "/order-data",
+    "/order-create",
     validate(orderValidation.createOrder),
     orderController.createOrder
 );

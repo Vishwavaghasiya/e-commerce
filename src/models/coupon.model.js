@@ -34,6 +34,10 @@ const couponSchema = new mongoose.Schema(
             type: Boolean,
             default: true
         }
+    },
+    {
+        timestamps : true,
+        versionKey : false
     }
 );
 

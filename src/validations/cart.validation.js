@@ -6,6 +6,7 @@ const createBlogpost = {
         status : Joi.string().required().trim(),
         paymentMethod : Joi.string().required().trim(),
         paymentStatus : Joi.string().required().trim(),
+        user : Joi.string().required().trim(),
         totalAmount : Joi.number().integer().allow()
     }),
 };

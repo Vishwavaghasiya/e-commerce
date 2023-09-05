@@ -14,8 +14,12 @@ router.post(
 
 router.get(
     "/category-list",
-    validate(categoryValidation.getCategoryList),
     categoryController.getCategoryList
+);
+
+router.get(
+    "/category-details/:categoryId",
+    categoryController.getCategoryDetails
 );
 
 router.delete(

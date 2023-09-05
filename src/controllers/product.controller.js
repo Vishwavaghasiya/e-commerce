@@ -15,7 +15,7 @@ const createProduct = async (req, res) => {
             message: "Your data create successfully !!"
         });
     } catch (error) {
-        res.status(400).json({ success: fasle, message: error.message });
+        res.status(400).json({ success: false, message: error.message });
     }
 }
 

@@ -14,8 +14,12 @@ router.post(
 
 router.get(
     "/product-list",
-    validate(productValidation.getProductList),
     productController.getProductList
+);
+
+router.get(
+    "/product-details/:productId",
+    productController.getProductDetails
 );
 
 router.delete(

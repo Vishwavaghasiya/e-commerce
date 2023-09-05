@@ -9,6 +9,7 @@ const createCategory = {
         quantity : Joi.string().required().trim(),
         manufacturer : Joi.string().required().trim(),
         rating : Joi.string().required().trim(),
+        product : Joi.string().required().trim()
     }),
 };
 

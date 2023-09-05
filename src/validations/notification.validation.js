@@ -3,8 +3,9 @@ const Joi = require('joi');
 /** create notification */
 const createNotification = {
     body : Joi.object().keys({
+        content : Joi.string().required().trim(),
         title : Joi.string().required().trim(),
-        content : Joi.number().integer().allow()
+        user : Joi.string().required().trim()
     }),
 };
 
