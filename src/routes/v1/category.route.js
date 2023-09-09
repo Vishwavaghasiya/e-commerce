@@ -5,7 +5,6 @@ const { categoryValidation } = require('../../validations');
 
 const router = express.Router();
 
-/** create category */
 router.post(
     "/create-category",
     validate(categoryValidation.createCategory),

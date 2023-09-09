@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
-/** create blogpost */
-const createBlogpost = {
+/** create cart */
+const createCart = {
     body : Joi.object().keys({
         status : Joi.string().required().trim(),
         paymentMethod : Joi.string().required().trim(),
@@ -12,5 +12,5 @@ const createBlogpost = {
 };
 
 module.exports = {
-    createBlogpost
+    createCart
 }

@@ -7,7 +7,8 @@ const createShipping = {
         method : Joi.string().required().trim(),
         trackingNumber : Joi.string().required().trim(),
         status : Joi.string().required().trim(),
-        notes : Joi.string().required().allow()
+        notes : Joi.string().required().allow(),
+        user : Joi.string().required().allow()
     }),
 };
 

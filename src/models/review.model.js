@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const reviewSchema = new mongoose.Schema(
     {
-        items: {
+        product: {
             type: mongoose.Types.ObjectId,
             ref: "product",
         },

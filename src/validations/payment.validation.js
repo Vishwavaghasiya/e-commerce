@@ -7,6 +7,8 @@ const createPayment = {
         currency : Joi.string().required().trim(),
         transactionId : Joi.string().required().trim(),
         notes : Joi.string().required().trim(),
+        user : Joi.string().required().trim(),
+        order : Joi.string().required().trim(),
         billingAddress : Joi.string().required().trim(),
         amount : Joi.number().integer().allow()
     }),
